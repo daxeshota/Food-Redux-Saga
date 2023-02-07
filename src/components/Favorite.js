@@ -4,7 +4,6 @@ import { removeFromcart, emtCart, incItem, decItem } from "../redux";
 
 const Favorite = () => {
   const favItems = useSelector((state) => state.cartReducer.carts);
-  console.log(favItems);
   const dispatch = useDispatch();
 
   const dltFunc = (id) => {
@@ -21,10 +20,9 @@ const Favorite = () => {
   };
   const fItems = favItems.map((item) => item.price * item.qnty);
 
-  let summation = fItems.reduce(
-    (accumulator, currentValue) => { 
-      return (accumulator + currentValue)},0
-  );
+  let summation = fItems.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
 
   return (
     <>
